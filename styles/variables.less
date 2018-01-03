@@ -1,0 +1,119 @@
+//VARIABLES
+@containerWidth: 1180px;
+@firstGridColumnWidth: 340px;
+@gridGap: 26px;
+
+//COLORS
+@orangeAccentColor: #d25b38;
+@whiteTextColor: #fff;
+@greyTextColor: #636363;
+@darkGreyTextColor: #454443;
+@greyBackgroundColor: #f3f3f3;
+
+//FONTS
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Regular.ttf)
+}
+@OpenSans: OpenSans, sans-serif;
+
+@font-face {
+    font-family: BebasNeue;
+    src: url(../fonts/BebasNeue-Regular.otf)
+}
+@BebasNeue: BebasNeue, serif;
+
+@font-face {
+    font-family: BebasNeueBold;
+    src: url(../fonts/BebasNeue-Bold.otf)
+}
+@BebasNeueBold: BebasNeueBold, serif;
+
+//MIXINS
+.sectionStyleMixin {
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.headerStyleMixin {
+    margin-bottom: 0;
+    
+    color: @darkGreyTextColor;
+    font-family: @BebasNeueBold;
+    
+    font-size: 25px;
+}
+
+.gridHeaderStyleMixin {
+    margin-bottom: 0;
+    
+    color: @darkGreyTextColor;
+    font-family: @BebasNeueBold;
+    
+    font-size: 90px;
+    line-height: 80px;
+}
+
+.paragraphStyleMixin {
+    padding: 15px;
+    
+    color: @greyTextColor;
+    font-family: @OpenSans;
+}
+
+.buttonStyleMixin {
+    display: inline-block;
+    
+    width: 180px;
+    
+    background-color: transparent;
+    border: 4px solid #fff;
+    
+    color: @whiteTextColor;
+    font: 20px @BebasNeueBold;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.shadowAnimationHoverMixin {
+    box-shadow: 10px 10px 30px darken(#fff, 20%);
+    transition: all .2s ease;
+}
+
+.shadowAnimationLostHoverMixin {
+    transition: all 2s ease;
+}
+
+.transitionHoverMixin {
+    transition: all 0.2s ease;
+}
+
+.transitionLostHoverMixin {
+    transition: all 2s ease;
+}
+
+//ADAPTIVITY MIXIN
+.respond-to (@device, @content) {
+    & when (@device = phones) {
+        @media screen and (max-width: 480px) { @content(); }
+    }
+    & when (@device = wide-phones) {
+        @media screen and (min-width: 480px) and (max-width: 767px) { @content(); }
+    }
+    & when (@device = tablets) {
+        @media screen and (min-width: 768px) and (max-width: 991px) { @content(); }
+    }
+    & when (@device = small-desktops) {
+        @media screen and (min-width: 992px) and (max-width: 1199px) { @content(); }
+    }
+    & when (@device = lg-desktops) {
+        @media screen and (min-width: 1200px) and (max-width: 1440px) { @content(); }
+    }
+    & when (@device = xlg-desktops) {
+        @media screen and (min-width: 1441px) { @content(); }
+    }   
+}
+//END OF ADAPTIVITY MIXIN
+
+//END OF VARIABLES
